@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clickable Sidebar Icons</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    /* General Styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    /* Container for Sidebar and Content */
+    .container {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Main Content Area */
+    .content {
+        flex: 3;
+        padding: 20px;
+        background-color: #fff;
+        margin-right: 20px; /* Space between content and sidebar */
+    }
+
+    /* Sidebar */
+    .sidebar {
+        flex: 1;
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    /* Social Media Icons */
+    .social-icons {
+        display: none; /* Initially hidden */
+        flex-direction: column;
+    }
+
+    .social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        margin: 10px 0;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        transition: all 0.3s ease-in-out;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        text-decoration: none; /* Remove underline */
+    }
+
+    .social-icons a:hover {
+        background-color: #555;
+    }
+
+    .social-icons a i {
+        font-size: 20px;
+        z-index: 1;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .social-icons a span {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 3px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out;
+        white-space: nowrap;
+        visibility: hidden;
+    }
+
+    .social-icons a:hover span {
+        opacity: 1;
+        visibility: visible;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Main Content Area</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
+            <p>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+            <p>Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        </div>
+        <div class="sidebar">
+            <a href="#" class="toggle-icons">
+                <i class="fas fa-bars fa-2x"></i>
+            </a>
+            <div class="social-icons">
+                <a href="#" class="icon" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="#" class="icon" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="#" class="icon" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="#" class="icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <!-- JavaScript for toggling social icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleIcons = document.querySelector('.toggle-icons');
+            const socialIcons = document.querySelector('.social-icons');
+
+            toggleIcons.addEventListener('click', function() {
+                socialIcons.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+</html>
